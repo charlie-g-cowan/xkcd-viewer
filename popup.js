@@ -64,7 +64,11 @@ function printComic(comicJSON) {
   $('#comicinfo').append('<i>' + comicJSON.year + '-' + extraZeros(comicJSON.month) + '-' + extraZeros(comicJSON.day) + '</i><br>');
   $('#comicinfo').append('<a href="' + explain + '" target="_blank">explain xkcd</a><br>');
   $('#comicinfo').append('<a href="http://xkcd.com/' + comicJSON.num + '/" target="_blank">Permalink</a><br><br>');
+  if(comicJSON.num === 826 || comicJSON.num === 880 || comicJSON.num === 1110 || comicJSON.num === 1350 || comicJSON.num === 1416) {
+    $('body').append('<p class="comic">This comic is interactive, so is better viewed on the xkcd site. <a href="http://xkcd.com/' + comicJSON.num + '/" target="_blank">Here\'s a link to the comic.</p>');
+  } else {
   $('body').append('<img class="comic" src="' + comicJSON.img + '" title="' + htmlEncode(comicJSON.alt) + '">');
+}
 }
 
 // Thanks to CMS on StackOverflow for HTML encode http://stackoverflow.com/questions/1219860/html-encoding-in-javascript-jquery
